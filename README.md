@@ -2,7 +2,7 @@
 
 > He who knows <i>Windows</i> is wise. He who knows <i>Linux</i> is enlightened !
 >
-> - <cite>Amine Naimi</cite> <i>(definitely not Lao Tzu)</i>
+> \- <cite>Amine Naimi</cite> <i>(definitely not Lao Tzu)</i>
 
 ## Community enterprise Linux Operating System _or simply_ CentOS
 
@@ -54,4 +54,14 @@ When it comes to the Linux kernel, _Debian_ is known to be shipped with the late
 
 _You can find more **Debian**'s kernel versioning [here](https://en.wikipedia.org/wiki/Debian_version_history#Release_table), and on **CentOS**'s kernel versioning [here](https://en.wikipedia.org/wiki/CentOS#CentOS_version_8)_
 
-## Naah for real now, what's X.org
+## What's X.org
+
+Maybe you've heard about it, maybe you saw it somewhere, and now you just want to know what it is _(or not)_, well you've come to the wrong place, I don't know what it is either, but let's try to learn about it together _(JK, I already know what it is)_.
+
+According to [Wikipedia](https://en.wikipedia.org/wiki/X.Org_Server):
+
+> X.Org Server is the free and open-source implementation of the X Window System display server stewarded by the X.Org Foundation.
+
+Let me guess, that didn't help much, right ?!? Well let me explain it to you in layman's terms _(or lay-person, if you're into that kind of stuff)_. _X.org_ is actually the name of the organisation that leads the _X Window System_ or _X11_ project. 
+
+The _X11_ is a windowing system _(a Graphical User Interface Server)_, used on _Unix-like_ operating systems, i.e. it's basically just a recreation of the Microsoft Windows GUI, but one that's compatible with _Unix-like_ systems. But note that a Graphical User Interface Server needs to be hooked with window manager in order to _partially_ work, and that's why we have _Desktop Environments_, they're a combination of a _Graphical User Interface Server_, a _Window Manager_, and some other tools that makes the GUI more usable
