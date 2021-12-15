@@ -62,6 +62,19 @@ According to [Wikipedia](https://en.wikipedia.org/wiki/X.Org_Server):
 
 > X.Org Server is the free and open-source implementation of the X Window System display server stewarded by the X.Org Foundation.
 
-Let me guess, that didn't help much, right ?!? Well let me explain it to you in layman's terms _(or lay-person, if you're into that kind of stuff)_. _X.org_ is actually the name of the organisation that leads the _X Window System_ or _X11_ project. 
+Let me guess, that didn't help much, right ?!? Well let me explain it to you in layman's terms _(or in lay-person's terms, if you're into that kind of stuff)_. 
 
-The _X11_ is a windowing system _(a Graphical User Interface Server)_, used on _Unix-like_ operating systems, i.e. it's basically just a recreation of the Microsoft Windows GUI, but one that's compatible with _Unix-like_ systems. But note that a Graphical User Interface Server needs to be hooked with window manager in order to _partially_ work, and that's why we have _Desktop Environments_, they're a combination of a _Graphical User Interface Server_, a _Window Manager_, and some other tools that makes the GUI more usable
+_X.org_ is actually the name of the organisation that leads the _X Window System_ or _X11_ project. 
+
+The _X11_ is a windowing system _(a Graphical User Interface Server)_, used on _Unix-like_ operating systems, i.e. it's basically just a recreation of the Microsoft Windows GUI _(kind of)_, but one that's compatible with _Unix-like_ systems. 
+
+But note that a Graphical User Interface Server needs to be hooked with a Window Manager in order to _partially_ work, and that's why we have _Desktop Environments_, they're a combination of a _Graphical User Interface Server_, a _Window Manager_, and some other tools that makes the GUI more usable.
+
+### Techopedia Explains X.Org Server
+
+> X.Org Server is the X Window reference implementation, which serves as the standard for all other implementations and is generally used with Unix and Linux platforms. X.Org Server is the base for KDE, GNOME and CDE desktop interfaces.
+
+> The X.Org Server platform runs on a computer with graphical displays, connects with numerous programs and serves as an intermediary between client and user applications. X.Org Server receives graphical output requests from client programs, which are then displayed for users. The server also receives user input from a mouse or keyboard and then transmits data to the client application.
+
+> The client-server communication protocol uses a transparent network, allowing the client and server to run on the same or different computers. Additionally, the client and server may have different architectures and OSs. Client and server communications are secured over the Internet via a data encryption mechanism known as tunneling.
+
