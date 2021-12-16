@@ -80,5 +80,33 @@ But note that a Graphical User Interface Server needs to be hooked with a Window
 
 ## What is KDump
 
+As the [Oracle Linux documentation](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_kdump_diag.html) explains it:
+
+> Kdump is the Linux kernel crash-dump mechanism. Oracle recommends that you enable the Kdump feature. In the event of a system crash, Kdump creates a memory image (vmcore) that can help in determining the cause of the crash. Enabling Kdump requires you to reserve a portion of system memory for exclusive use by Kdump. This memory is unavailable for other uses.
+>
+> Kdump uses kexec to boot into a second kernel whenever the system crashes. kexec is a fast-boot mechanism which allows a Linux kernel to boot from inside the context of a kernel that is already running without passing through the bootloader stage.
+
+Or as _Red Hat_ explains in their [documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/installing-kdump_managing-monitoring-and-updating-the-kernel#what-is-kdump_installing-kdump):
+> _KDump_ is a service providing a crash dumping mechanism. The service enables you to save the contents of the system’s memory for later analysis. kdump uses the kexec system call to boot into the second kernel _(a capture kernel)_ without rebooting; and then captures the contents of the crashed kernel’s memory _(a crash dump or a vmcore)_ and saves it. The second kernel resides in a reserved part of the system memory.
+
+So basiaclly put, **KDump**, is a _Linux Kernel_ feature which is used to dump memory content of the system when a Kernel failure or crash occurs. Whenever a Kernel failure or crash occurs, the _KDump_ feature copies the content of the main memory and exports it into an _Executable and Linkable Format(ELF)_ which can be further used to analyse the reason for Kernel crash or for system recovery.
+
+And if that didn't make things clear, here's what _The Geek Diary_ thinks **KDump** is:
+
+> Kdump is the Linux kernel crash dumping mechanism. In the event of a system crash, Kdump provides a memory dump _(vmcore)_ image. This image can assist in determining the cause of the crash. It is highly recommended that you enable the Kdump feature.
+>
+> Kexec and Kdump together ensure faster bootup and the creation of reliable kernel vmcores for diagnostic purposes. Kexec is a fast-boot mechanism that allows booting a Linux kernel from the context of an already running kernel without going through BIOS. Kdump uses Kexec to boot into a second kernel whenever the system crashes. The crash dump is captured from the context of a freshly booted kernel and not from the context of the crashed kernel. This second kernel boots with very little memory and captures the dump image.
+
+## What is SELinux
+
+Security-Enhanced Linux _(or SELinux)_ is a security module, initially developped by the _United States' National Security Agency_ aka _NSA_ and made public or open-source in 2000, which brings some enhancements to the Linux kernel in terms of security. To make things a little bit more clear, _SELinux_ enforces the access policy _(either the default one, or the one given by the SysAdmin)_ that will be followed by the kernel whenever a process needs to access a file or an object
+
+The NSA Security-Enhanced Linux Team describes NSA SELinux as:
+
+> a set of patches to the Linux kernel and utilities to provide a strong, flexible, mandatory access control (MAC) architecture into the major subsystems of the kernel. It provides an enhanced mechanism to enforce the separation of information based on confidentiality and integrity requirements, which allows threats of tampering, and bypassing of application security mechanisms, to be addressed and enables the confinement of damage that can be caused by malicious or flawed applications. It includes a set of sample security policy configuration files designed to meet common, general-purpose security goals.
+
+_**P.S.** If you want to dig a little bit deeper, here is a really beautiful explanation of [How-to SELinux](https://opensource.com/business/13/11/selinux-policy-guide)_ made by [opensource.com](https://opensource.com/). And here is what [_Red Hat_](https://www.redhat.com/en/topics/linux/what-is-selinux) says about it too.
+
+## What is AppArmor
 
 
