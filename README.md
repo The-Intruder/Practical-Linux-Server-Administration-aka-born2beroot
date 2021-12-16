@@ -73,8 +73,12 @@ But note that a Graphical User Interface Server needs to be hooked with a Window
 ### Techopedia Explains X.Org Server
 
 > X.Org Server is the X Window reference implementation, which serves as the standard for all other implementations and is generally used with Unix and Linux platforms. X.Org Server is the base for KDE, GNOME and CDE desktop interfaces.
-
+>
 > The X.Org Server platform runs on a computer with graphical displays, connects with numerous programs and serves as an intermediary between client and user applications. X.Org Server receives graphical output requests from client programs, which are then displayed for users. The server also receives user input from a mouse or keyboard and then transmits data to the client application.
-
+>
 > The client-server communication protocol uses a transparent network, allowing the client and server to run on the same or different computers. Additionally, the client and server may have different architectures and OSs. Client and server communications are secured over the Internet via a data encryption mechanism known as tunneling.
+
+## What is KDump
+
+
 
