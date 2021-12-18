@@ -86,7 +86,7 @@ As the [Oracle Linux documentation](https://docs.oracle.com/cd/E37670_01/E37355/
 >
 > Kdump uses kexec to boot into a second kernel whenever the system crashes. kexec is a fast-boot mechanism which allows a Linux kernel to boot from inside the context of a kernel that is already running without passing through the bootloader stage.
 
-Or as _Red Hat_ explains in their [documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/installing-kdump_managing-monitoring-and-updating-the-kernel#what-is-kdump_installing-kdump):
+Or as _Red Hat_ explains it in their [documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/installing-kdump_managing-monitoring-and-updating-the-kernel#what-is-kdump_installing-kdump):
 > _KDump_ is a service providing a crash dumping mechanism. The service enables you to save the contents of the system’s memory for later analysis. kdump uses the kexec system call to boot into the second kernel _(a capture kernel)_ without rebooting; and then captures the contents of the crashed kernel’s memory _(a crash dump or a vmcore)_ and saves it. The second kernel resides in a reserved part of the system memory.
 
 So basiaclly put, **KDump**, is a _Linux Kernel_ feature which is used to dump memory content of the system when a Kernel failure or crash occurs. Whenever a Kernel failure or crash occurs, the _KDump_ feature copies the content of the main memory and exports it into an _Executable and Linkable Format(ELF)_ which can be further used to analyse the reason for Kernel crash or for system recovery.
@@ -105,8 +105,61 @@ The NSA Security-Enhanced Linux Team describes NSA SELinux as:
 
 > a set of patches to the Linux kernel and utilities to provide a strong, flexible, mandatory access control (MAC) architecture into the major subsystems of the kernel. It provides an enhanced mechanism to enforce the separation of information based on confidentiality and integrity requirements, which allows threats of tampering, and bypassing of application security mechanisms, to be addressed and enables the confinement of damage that can be caused by malicious or flawed applications. It includes a set of sample security policy configuration files designed to meet common, general-purpose security goals.
 
-_**P.S.** If you want to dig a little bit deeper, here is a really beautiful explanation of [How-to SELinux](https://opensource.com/business/13/11/selinux-policy-guide)_ made by [opensource.com](https://opensource.com/). And here is what [_Red Hat_](https://www.redhat.com/en/topics/linux/what-is-selinux) says about it too.
+_**P.S.** If you want to dig a little bit deeper, here is a really beautiful explanation of [How-to SELinux](https://opensource.com/business/13/11/selinux-policy-guide)_ made by _[opensource.com]_(https://opensource.com/). And here is what [_Red Hat_](https://www.redhat.com/en/topics/linux/what-is-selinux) says about it too.
 
 ## What is AppArmor
 
+**AppArmor** _(or Application Armor)_ is—according to [Wikipedia](https://en.wikipedia.org/wiki/AppArmor)—:
+> ... a _Linux kernel security module_ that allows the system administrator to restrict programs' capabilities with per-program profiles. Profiles can allow capabilities like network access, raw socket access, and the permission to read, write, or execute files on matching paths. AppArmor supplements the traditional Unix discretionary access control _(DAC)_ model by providing mandatory access control _(MAC)_. ...
 
+[HowToGeek](https://www.howtogeek.com/118222/htg-explains-what-apparmor-is-and-how-it-secures-your-ubuntu-system/) also has a wonderful explanation of **AppArmor** that goes as follows:
+
+> AppArmor is similar to SELinux, used by default in Fedora and Red Hat. While they work differently, both AppArmor and SELinux provide “mandatory access control” (MAC) security. In effect, AppArmor allows Ubuntu’s developers to restrict the actions processes can take. ...
+
+_AppArmor_  _(somewhat)_ a Mandatory Access Control _(MAC)_ system which supliments the—already existing—Unix discretionary access control _(DAC)_ model by simply restricting programs to certain resources.
+
+You can also take a look at the [Official AppArmor Documentation](https://gitlab.com/apparmor/apparmor/-/wikis/Documentation) for further understanding, and here is their [Official Website](https://apparmor.net/), and just to make sure you finish this with a full understanding of _AppArmor_, here is an explanation made by _Seth_ in [StackOverflow](https://askubuntu.com/questions/236381/what-is-apparmor).
+
+***
+
+### What is the difference between SELinux and AppArmor
+
+As [Wikipedia](https://en.wikipedia.org/wiki/AppArmor) describes it:
+
+> _AppArmor_ is offered in part as an alternative to _SELinux_, which critics consider difficult for administrators to set up and maintain. Unlike _SELinux_, which is based on applying labels to files, AppArmor works with file paths. Proponents of AppArmor claim that it is less complex and easier for the average user to learn than SELinux. They also claim that AppArmor requires fewer modifications to work with existing systems.[citation needed] For example, SELinux requires a filesystem that supports "security labels", and thus cannot provide access control for files mounted via NFS. AppArmor is filesystem-agnostic.
+
+And I think that it doesn't need to be explained any further.
+
+***
+
+## What is a Logical Volume Manager _(or LVM)_
+
+
+### Some related LVM bash commands
+
+```bash
+$ pvs		# Physical Volumes Information
+$ lvs		# Logical Volumes Information
+$ vgs		# Volume Groups 
+$ df -h		# Disk Free, human-readble format
+```
+
+## Reserved Blocks in Linux
+
+Reserved blocks are disk blocks reserved by the kernel for processes owned by privileged users to prevent operating system from a crash due to unavailability of storage space for critical processes. For example, just imagine the size of root file system is 14 GB and the root file system is 100% full, all the non privileged user processes would not be able to write data to the root file system whereas processes which are owned by  privileged user (root by default) would still be able to write the data to the file system. With the help of reserved blocks, operating system keeps running for hours or sometimes days even though root file system is 100% full.
+
+The default percentage of reserved block is `5%` of the total size of file system and can be increased or decreased based upon the requirement. However, it is not recommended to reduce the percentage of reserved block less than `5%`. Reserved blocks are supported on `ext2` and `ext3` file system(s).
+
+## Difference between VDI, VMDK, and VHD
+
+**VDI** is the native format of _VirtualBox_. Other virtualization software generally don't support _VDI_, but it's pretty easy to convert from _VDI_ to another format, especially with [qemu-img](https://linux.die.net/man/1/qemu-img) convert.
+
+**VMDK** is developed by and for _VMWare_, but _VirtualBox_ and _QEMU_ _(another common virtualization software)_ also support it. This format might be the the best choice for you because you want wide compatibility with other virtualization software.
+
+**VHD** is the native format of _Microsoft Virtual PC_. _Windows Server 2012_ introduced _VHDX_ as the successor to _VHD_, but _VirtualBox_ does not support _VHDX_.
+
+***
+
+_**Disclaimer:** some of the things that you've just read may not be 100% written by me, sometimes I like how a particular sentence is put, so I just copy-paste it, and sometimes I just don't like explaining things my way, so I don't end up confusing people, but one thing's for sure, is that I've put an serious effort into researching these things and bundeling them into this `README.md` :)_
+
+***
