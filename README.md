@@ -120,6 +120,8 @@ _AppArmor_  _(somewhat)_ a Mandatory Access Control _(MAC)_ system which suplime
 
 You can also take a look at the [Official AppArmor Documentation](https://gitlab.com/apparmor/apparmor/-/wikis/Documentation) for further understanding, and here is their [Official Website](https://apparmor.net/), and just to make sure you finish this with a full understanding of _AppArmor_, here is an explanation made by _Seth_ in [StackOverflow](https://askubuntu.com/questions/236381/what-is-apparmor).
 
+**TL;DR** _AppArmor_ is—technically called—a **Mandatory Access Control** (MAC) system implemented upon the **Linux Security Modules** (LSM). It supplements rather than replaces the default **Discretionary Access Control** (DAC). As such it is impossible to grant a process more privileges than it had in the first place.
+
 ***
 
 ### What is the difference between SELinux and AppArmor
@@ -157,6 +159,49 @@ The default percentage of reserved block is `5%` of the total size of file syste
 **VMDK** is developed by and for _VMWare_, but _VirtualBox_ and _QEMU_ _(another common virtualization software)_ also support it. This format might be the the best choice for you because you want wide compatibility with other virtualization software.
 
 **VHD** is the native format of _Microsoft Virtual PC_. _Windows Server 2012_ introduced _VHDX_ as the successor to _VHD_, but _VirtualBox_ does not support _VHDX_.
+
+## Commands that we'll be using:
+
+```bash
+apt				#
+lsblk			#
+ssh				#
+uname			#
+wc				#
+free			#
+df				#
+top				#
+who				#
+users			#
+hostname		#
+ip				#
+journalctl		#
+hostnamectl		#
+adduser			#
+groupadd		#
+usermod			#
+getent			#
+ufw				#
+systemctl		#
+service			#
+```
+
+## Difference between "Save the machine state", "Send the shutdown signal" and "Power off the machine" in VirtualBox
+
+1. **Save the machine state:** With this option, VirtualBox "freezes" the virtual machine by completely saving its state to your local disk. When you start the VM again later, you will find that the VM continues exactly where it was left off. All your programs will still be open, and your computer resumes operation. Saving the state of a virtual machine is thus in some ways similar to suspending a laptop computer.
+2. **Send the shutdown signal:** This will send an _ACPI_ shutdown signal to the virtual machine, which has the same effect as if you had pressed the power button on a real computer. So long as the VM is running a fairly modern operating system, this should trigger a proper shutdown mechanism from within the VM.
+3. **Power off the machine:** With this option, _VirtualBox_ also stops running the virtual machine, but without saving its state.
+
+## The difference between `useradd` and `adduser`
+
+`useradd` is native binary compiled with the system. But, `adduser` is a _Perl_ script which uses `useradd` binary in back-end.
+
+`adduser` is more user friendly and interactive than its back-end `useradd`. There's no difference in features provided.
+
+## What is UFW
+
+It actually stands for **Uncomplicated Fire-Wall**, 
+
 
 ***
 
