@@ -1,8 +1,32 @@
-# Know your _**born2beroot**_
+<p align="center">
+  <a href="https://github.com/The-Intruder/Practical-Linux-Server-Administration-aka-born2beroot">
+    <img src="https://www.iconpacks.net/icons/1/free-printer-icon-1434-thumb.png" alt="Logo" width="80" height="80">
+  </a>
 
-> He who knows <i>Windows</i> is wise. He who knows <i>Linux</i> is enlightened !
->
-> \- <cite>Amine Naimi</cite> <i>(definitely not Lao Tzu)</i>
+  <h3 align="center">Practical Linux Server Administration<em>born2beroot</em></h3>
+
+  <p align="center">
+An immersive project designed to get familiarized with the world of system administration and server management using Linux, as well as gaining hands-on experience in setting up and configuring a secure and efficient server environment.
+    <br/>
+    <br/>
+    <a href="https://github.com/The-Intruder/Practical-Linux-Server-Administration-aka-born2beroot/issues">Report Bug</a>
+    .
+    <a href="https://github.com/The-Intruder/Practical-Linux-Server-Administration-aka-born2beroot/issues">Request Feature</a>
+  </p>
+</p>
+
+<div  style="display: flex; justify-content: center;">
+<a  href="https://twitter.com/i_am_amine" target="_blank">
+  <img  alt="Twitter Follow"  src="https://img.shields.io/twitter/follow/i_am_amine?style=social">
+</a>
+<img  src="https://img.shields.io/github/repo-size/The-Intruder/Practical-Linux-Server-Administration-aka-born2beroot"  alt="Repo Size">
+<img  src="https://img.shields.io/github/last-commit/The-Intruder/Practical-Linux-Server-Administration-aka-born2beroot"  alt="Last Commit">
+<img  src="https://img.shields.io/github/license/The-Intruder/Practical-Linux-Server-Administration-aka-born2beroot" alt="License" >
+</div>
+
+## Table Of Contents
+
+
 
 ## Community enterprise Linux Operating System _or simply_ CentOS
 
@@ -160,30 +184,30 @@ The default percentage of reserved block is `5%` of the total size of file syste
 
 **VHD** is the native format of _Microsoft Virtual PC_. _Windows Server 2012_ introduced _VHDX_ as the successor to _VHD_, but _VirtualBox_ does not support _VHDX_.
 
-## Commands that we'll be using:
+## Most Used Commands:
 
 ```bash
-apt				#
-lsblk			#
-ssh				#
-uname			#
-wc				#
-free			#
-df				#
-top				#
-who				#
-users			#
-hostname		#
-ip				#
-journalctl		#
-hostnamectl		#
-adduser			#
-groupadd		#
-usermod			#
-getent			#
-ufw				#
-systemctl		#
-service			#
+apt
+lsblk
+ssh
+uname
+wc
+free
+df
+top
+who
+users
+hostname
+ip
+journalctl
+hostnamectl
+adduser
+groupadd
+usermod
+getent
+ufw
+systemctl
+service
 ```
 
 ## Difference between "Save the machine state", "Send the shutdown signal" and "Power off the machine" in VirtualBox
@@ -201,10 +225,3 @@ service			#
 ## What is UFW
 
 It actually stands for **Uncomplicated Fire-Wall**, 
-
-
-***
-
-_**Disclaimer:** some of the things that you've just read may not be 100% written by me, sometimes I like how a particular sentence is put, so I just copy-paste it, and sometimes I just don't like explaining things my way, so I don't end up confusing people, but one thing's for sure, is that I've put an serious effort into researching these things and bundeling them into this `README.md` :)_
-
-***
