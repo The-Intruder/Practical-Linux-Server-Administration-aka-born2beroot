@@ -44,14 +44,14 @@ An immersive project designed to get familiarized with the world of system admin
   - [Some related LVM bash commands](#some-related-lvm-bash-commands)
 - [Reserved Blocks in Linux](#reserved-blocks-in-linux)
 - [Difference between VDI, VMDK, and VHD](#difference-between-vdi-vmdk-and-vhd)
-- [Most Used Commands](#most-used-commands)
 - [Difference between "Save the machine state", "Send the shutdown signal" and "Power off the machine" in VirtualBox](#difference-between-save-the-machine-state-send-the-shutdown-signal-and-power-off-the-machine-in-virtualbox)
 - [The difference between `useradd` and `adduser`](#the-difference-between-useradd-and-adduser)
 - [What is UFW](#what-is-ufw)
+- [Most Used Commands](#most-used-commands)
 
 ## Community enterprise Linux Operating System _or simply_ CentOS
 
-Is an open-source Linux  _(meaning that it uses the Linux kernel)_, _Duh!_. It was developped by _Red Hat_ _(the company behind the famous Red Hat Entreprise Linux, and the main contributor to several open-source projects)_, and maintained by—also—_Red Hat_ along with the open-source community.
+Is an open-source Linux _(meaning that it uses the Linux kernel)_, _Duh!_. It was developped by _Red Hat_ _(the company behind the famous Red Hat Entreprise Linux, and the main contributor to several open-source projects)_, and maintained by—also—_Red Hat_ along with the open-source community.
 
 Its main use is to test features that will be integrated in future _Red Hat Entreprise Linux_ releases, and it can also be used as an OS just like any other OS for personnal uses _(probably not for typical desktop users, sorry, but it's just the truth)_ and professional uses as well _(as a server maybe)_. I mean after all it's open-source, right ?!??
 
@@ -133,6 +133,7 @@ As the [Oracle Linux documentation](https://docs.oracle.com/cd/E37670_01/E37355/
 > Kdump uses kexec to boot into a second kernel whenever the system crashes. kexec is a fast-boot mechanism which allows a Linux kernel to boot from inside the context of a kernel that is already running without passing through the bootloader stage.
 
 Or as _Red Hat_ explains it in their [documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/installing-kdump_managing-monitoring-and-updating-the-kernel#what-is-kdump_installing-kdump):
+
 > _KDump_ is a service providing a crash dumping mechanism. The service enables you to save the contents of the system’s memory for later analysis. kdump uses the kexec system call to boot into the second kernel _(a capture kernel)_ without rebooting; and then captures the contents of the crashed kernel’s memory _(a crash dump or a vmcore)_ and saves it. The second kernel resides in a reserved part of the system memory.
 
 So basiaclly put, **KDump**, is a _Linux Kernel_ feature which is used to dump memory content of the system when a Kernel failure or crash occurs. Whenever a Kernel failure or crash occurs, the _KDump_ feature copies the content of the main memory and exports it into an _Executable and Linkable Format(ELF)_ which can be further used to analyse the reason for Kernel crash or for system recovery.
@@ -156,19 +157,20 @@ _**P.S.** If you want to dig a little bit deeper, here is a really beautiful exp
 ## What is AppArmor
 
 **AppArmor** _(or Application Armor)_ is—according to [Wikipedia](https://en.wikipedia.org/wiki/AppArmor)—:
+
 > ... a _Linux kernel security module_ that allows the system administrator to restrict programs' capabilities with per-program profiles. Profiles can allow capabilities like network access, raw socket access, and the permission to read, write, or execute files on matching paths. AppArmor supplements the traditional Unix discretionary access control _(DAC)_ model by providing mandatory access control _(MAC)_. ...
 
 [HowToGeek](https://www.howtogeek.com/118222/htg-explains-what-apparmor-is-and-how-it-secures-your-ubuntu-system/) also has a wonderful explanation of **AppArmor** that goes as follows:
 
 > AppArmor is similar to SELinux, used by default in Fedora and Red Hat. While they work differently, both AppArmor and SELinux provide “mandatory access control” (MAC) security. In effect, AppArmor allows Ubuntu’s developers to restrict the actions processes can take. ...
 
-_AppArmor_  _(somewhat)_ a Mandatory Access Control _(MAC)_ system which supliments the—already existing—Unix discretionary access control _(DAC)_ model by simply restricting programs to certain resources.
+_AppArmor_ _(somewhat)_ a Mandatory Access Control _(MAC)_ system which supliments the—already existing—Unix discretionary access control _(DAC)_ model by simply restricting programs to certain resources.
 
 You can also take a look at the [Official AppArmor Documentation](https://gitlab.com/apparmor/apparmor/-/wikis/Documentation) for further understanding, and here is their [Official Website](https://apparmor.net/), and just to make sure you finish this with a full understanding of _AppArmor_, here is an explanation made by _Seth_ in [StackOverflow](https://askubuntu.com/questions/236381/what-is-apparmor).
 
 **TL;DR** _AppArmor_ is—technically called—a **Mandatory Access Control** (MAC) system implemented upon the **Linux Security Modules** (LSM). It supplements rather than replaces the default **Discretionary Access Control** (DAC). As such it is impossible to grant a process more privileges than it had in the first place.
 
-***
+---
 
 ### What is the difference between SELinux and AppArmor
 
@@ -178,7 +180,7 @@ As [Wikipedia](https://en.wikipedia.org/wiki/AppArmor) describes it:
 
 And I think that it doesn't need to be explained any further.
 
-***
+---
 
 ## What is a Logical Volume Manager _(or LVM)_
 
@@ -187,13 +189,13 @@ And I think that it doesn't need to be explained any further.
 ```bash
 pvs  # Physical Volumes Information
 lvs  # Logical Volumes Information
-vgs  # Volume Groups 
+vgs  # Volume Groups
 df -h  # Disk Free, human-readble format
 ```
 
 ## Reserved Blocks in Linux
 
-Reserved blocks are disk blocks reserved by the kernel for processes owned by privileged users to prevent operating system from a crash due to unavailability of storage space for critical processes. For example, just imagine the size of root file system is 14 GB and the root file system is 100% full, all the non privileged user processes would not be able to write data to the root file system whereas processes which are owned by  privileged user (root by default) would still be able to write the data to the file system. With the help of reserved blocks, operating system keeps running for hours or sometimes days even though root file system is 100% full.
+Reserved blocks are disk blocks reserved by the kernel for processes owned by privileged users to prevent operating system from a crash due to unavailability of storage space for critical processes. For example, just imagine the size of root file system is 14 GB and the root file system is 100% full, all the non privileged user processes would not be able to write data to the root file system whereas processes which are owned by privileged user (root by default) would still be able to write the data to the file system. With the help of reserved blocks, operating system keeps running for hours or sometimes days even though root file system is 100% full.
 
 The default percentage of reserved block is `5%` of the total size of file system and can be increased or decreased based upon the requirement. However, it is not recommended to reduce the percentage of reserved block less than `5%`. Reserved blocks are supported on `ext2` and `ext3` file system(s).
 
@@ -204,32 +206,6 @@ The default percentage of reserved block is `5%` of the total size of file syste
 **VMDK** is developed by and for _VMWare_, but _VirtualBox_ and _QEMU_ _(another common virtualization software)_ also support it. This format might be the the best choice for you because you want wide compatibility with other virtualization software.
 
 **VHD** is the native format of _Microsoft Virtual PC_. _Windows Server 2012_ introduced _VHDX_ as the successor to _VHD_, but _VirtualBox_ does not support _VHDX_.
-
-## Most Used Commands
-
-```bash
-apt
-lsblk
-ssh
-uname
-wc
-free
-df
-top
-who
-users
-hostname
-ip
-journalctl
-hostnamectl
-adduser
-groupadd
-usermod
-getent
-ufw
-systemctl
-service
-```
 
 ## Difference between "Save the machine state", "Send the shutdown signal" and "Power off the machine" in VirtualBox
 
@@ -245,4 +221,50 @@ service
 
 ## What is UFW
 
-It actually stands for **Uncomplicated Fire-Wall**,
+UFW stands for Uncomplicated Firewall. It is a user-friendly command-line tool used for managing firewall rules on Linux systems. UFW provides a simplified interface for configuring firewall settings, making it easier for users to set up and manage network security.
+
+With UFW, you can define rules to allow or deny incoming and outgoing network traffic based on various criteria, such as IP addresses, ports, protocols, and interfaces. It supports both IPv4 and IPv6 configurations.
+
+UFW is designed to be simple and intuitive, making it accessible to users who may not have extensive knowledge of firewall management. It uses a straightforward syntax and offers commands for enabling or disabling the firewall, adding or removing rules, and displaying the current status of the firewall.
+
+Behind the scenes, UFW interacts with the underlying netfilter firewall infrastructure, also known as iptables, to implement and enforce the specified firewall rules.
+
+By utilizing UFW, you can enhance the security of your Linux system by easily configuring firewall rules to control network traffic and protect against unauthorized access.
+
+## Most Used Commands
+
+| Command       | Explanation                                                                                          | Usage                                               |
+| ------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| `apt`         | Manages software packages in Debian-based Linux distributions.                                       | `apt [options] [command]`                           |
+| `apt-get`     | Manages software packages in Debian-based Linux distributions.                                       | `apt-get [options] [command]`                       |
+| `aptitude`    | Manages software packages in Debian-based Linux distributions.                                       | `aptitude [options] [command]`                      |
+| `apt-cache`   | Performs searches in APT's package cache.                                                            | `apt-cache [options] [command]`                     |
+| `lsblk`       | Lists information about available block devices.                                                     | `lsblk [options] [device]`                          |
+| `ssh`         | Securely connects to a remote server over SSH protocol.                                              | `ssh [user@]hostname [command]`                     |
+| `uname`       | Displays system information, including the kernel name, version, and release.                        | `uname [options]`                                   |
+| `wc`          | Counts the number of lines, words, and characters in a file or input.                                | `wc [options] [file]...`                            |
+| `free`        | Displays the amount of free and used memory in the system.                                           | `free [options]`                                    |
+| `df`          | Reports file system disk space usage.                                                                | `df [options] [file]...`                            |
+| `top`         | Displays real-time information about system processes and resource usage.                            | `top [options]`                                     |
+| `who`         | Shows information about currently logged-in users.                                                   | `who [options]`                                     |
+| `users`       | Displays a list of currently logged-in users.                                                        | `users [options]`                                   |
+| `hostname`    | Prints the name of the current host system.                                                          | `hostname [options]`                                |
+| `last`        | Shows listing of last logged-in users.                                                               | `last [options] [username]`                         |
+| `ip`          | Shows and manipulates network interfaces and routing tables.                                         | `ip [options] [object]...`                          |
+| `ifconfig`    | Configures and displays network interface parameters.                                                | `ifconfig [interface] [options]`                    |
+| `ping`        | Tests the reachability of a host on an IP network.                                                   | `ping [options] destination`                        |
+| `traceroute`  | Tracks the route packets take across an IP network.                                                  | `traceroute [options] destination`                  |
+| `journalctl`  | Views and manages logs from the systemd journal.                                                     | `journalctl [options]...`                           |
+| `hostnamectl` | Controls the system hostname and related settings.                                                   | `hostnamectl [options]`                             |
+| `adduser`     | Adds a new user account to the system.                                                               | `adduser [options] [username]`                      |
+| `useradd`     | Adds a new user account to the system.                                                               | `useradd [options] username`                        |
+| `groupadd`    | Creates a new group in the system.                                                                   | `groupadd [options] group`                          |
+| `userdel`     | Deletes a user account and related files.                                                            | `userdel [options] username`                        |
+| `usermod`     | Modifies user account attributes.                                                                    | `usermod [options] username`                        |
+| `groupmod`    | Modifies group attributes.                                                                           | `groupmod [options] group`                          |
+| `getent`      | Retrieves entries from databases configured in /etc/nsswitch.conf file (including users and groups). | `getent [options] database [key]`                   |
+| `passwd`      | Changes user password.                                                                               | `passwd [options] [username]`                       |
+| `ufw`         | Configures and manages Uncomplicated Firewall (UFW) settings.                                        | `ufw [options] [command]`                           |
+| `systemctl`   | Controls the systemd system and service manager.                                                     | `systemctl [command] [unit]`                        |
+| `service`     | Controls system services (legacy command).                                                           | `service [options] <service> <action> [options]...` |
+| `systemd`     | Controls the systemd system and service manager.                                                     | `systemd [options] [command] [unit]`                |
