@@ -1,9 +1,9 @@
 <p align="center">
   <a href="https://github.com/The-Intruder/Practical-Linux-Server-Administration-aka-born2beroot">
-    <img src="https://www.iconpacks.net/icons/1/free-printer-icon-1434-thumb.png" alt="Logo" width="80" height="80">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Icons8_flat_linux.svg/1200px-Icons8_flat_linux.svg.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Practical Linux Server Administration<em>born2beroot</em></h3>
+  <h3 align="center">Practical Linux Server Administration <em>born2beroot</em></h3>
 
   <p align="center">
 An immersive project designed to get familiarized with the world of system administration and server management using Linux, as well as gaining hands-on experience in setting up and configuring a secure and efficient server environment.
@@ -26,7 +26,28 @@ An immersive project designed to get familiarized with the world of system admin
 
 ## Table Of Contents
 
-
+- [Table Of Contents](#table-of-contents)
+- [Community enterprise Linux Operating System _or simply_ CentOS](#community-enterprise-linux-operating-system-or-simply-centos)
+- [Debian GNU/Linux _or just_ Debian](#debian-gnulinux-or-just-debian)
+- [The main differences between Debian \& CentOS](#the-main-differences-between-debian--centos)
+  - [Architecture](#architecture)
+  - [Packages Managing](#packages-managing)
+  - [Filesystems](#filesystems)
+  - [Kernel](#kernel)
+- [What's X.org](#whats-xorg)
+  - [Techopedia Explains X.Org Server](#techopedia-explains-xorg-server)
+- [What is KDump](#what-is-kdump)
+- [What is SELinux](#what-is-selinux)
+- [What is AppArmor](#what-is-apparmor)
+  - [What is the difference between SELinux and AppArmor](#what-is-the-difference-between-selinux-and-apparmor)
+- [What is a Logical Volume Manager _(or LVM)_](#what-is-a-logical-volume-manager-or-lvm)
+  - [Some related LVM bash commands](#some-related-lvm-bash-commands)
+- [Reserved Blocks in Linux](#reserved-blocks-in-linux)
+- [Difference between VDI, VMDK, and VHD](#difference-between-vdi-vmdk-and-vhd)
+- [Most Used Commands](#most-used-commands)
+- [Difference between "Save the machine state", "Send the shutdown signal" and "Power off the machine" in VirtualBox](#difference-between-save-the-machine-state-send-the-shutdown-signal-and-power-off-the-machine-in-virtualbox)
+- [The difference between `useradd` and `adduser`](#the-difference-between-useradd-and-adduser)
+- [What is UFW](#what-is-ufw)
 
 ## Community enterprise Linux Operating System _or simply_ CentOS
 
@@ -39,7 +60,8 @@ Its main use is to test features that will be integrated in future _Red Hat Entr
 Is one of the oldest Linux distros _(distributions)_, that are still used and maintained until this day
 
 The name is somewhat a combination between:
-1. The name of the _Debian_ founder: _**Ian** Murdock_ 
+
+1. The name of the _Debian_ founder: _**Ian** Murdock_
 2. And his—then—girlfriend: _**Deb**ra Lynn_
 
 Which gives us _**Deb-Ian**_
@@ -86,11 +108,11 @@ According to [Wikipedia](https://en.wikipedia.org/wiki/X.Org_Server):
 
 > X.Org Server is the free and open-source implementation of the X Window System display server stewarded by the X.Org Foundation.
 
-Let me guess, that didn't help much, right ?!? Well let me explain it to you in layman's terms _(or in lay-person's terms, if you're into that kind of stuff)_. 
+Let me guess, that didn't help much, right ?!? Well let me explain it to you in layman's terms _(or in lay-person's terms, if you're into that kind of stuff)_.
 
-_X.org_ is actually the name of the organisation that leads the _X Window System_ or _X11_ project. 
+_X.org_ is actually the name of the organisation that leads the _X Window System_ or _X11_ project.
 
-The _X11_ is a windowing system _(a Graphical User Interface Server)_, used on _Unix-like_ operating systems, i.e. it's basically just a recreation of the Microsoft Windows GUI _(kind of)_, but one that's compatible with _Unix-like_ systems. 
+The _X11_ is a windowing system _(a Graphical User Interface Server)_, used on _Unix-like_ operating systems, i.e. it's basically just a recreation of the Microsoft Windows GUI _(kind of)_, but one that's compatible with _Unix-like_ systems.
 
 But note that a Graphical User Interface Server needs to be hooked with a Window Manager in order to _partially_ work, and that's why we have _Desktop Environments_, they're a combination of a _Graphical User Interface Server_, a _Window Manager_, and some other tools that makes the GUI more usable.
 
@@ -129,7 +151,7 @@ The NSA Security-Enhanced Linux Team describes NSA SELinux as:
 
 > a set of patches to the Linux kernel and utilities to provide a strong, flexible, mandatory access control (MAC) architecture into the major subsystems of the kernel. It provides an enhanced mechanism to enforce the separation of information based on confidentiality and integrity requirements, which allows threats of tampering, and bypassing of application security mechanisms, to be addressed and enables the confinement of damage that can be caused by malicious or flawed applications. It includes a set of sample security policy configuration files designed to meet common, general-purpose security goals.
 
-_**P.S.** If you want to dig a little bit deeper, here is a really beautiful explanation of [How-to SELinux](https://opensource.com/business/13/11/selinux-policy-guide)_ made by _[opensource.com]_(https://opensource.com/). And here is what [_Red Hat_](https://www.redhat.com/en/topics/linux/what-is-selinux) says about it too.
+_**P.S.** If you want to dig a little bit deeper, here is a really beautiful explanation of [How-to SELinux](https://opensource.com/business/13/11/selinux-policy-guide)_ made by _[opensource.com]_(<https://opensource.com/>). And here is what [_Red Hat_](https://www.redhat.com/en/topics/linux/what-is-selinux) says about it too.
 
 ## What is AppArmor
 
@@ -160,14 +182,13 @@ And I think that it doesn't need to be explained any further.
 
 ## What is a Logical Volume Manager _(or LVM)_
 
-
 ### Some related LVM bash commands
 
 ```bash
-$ pvs		# Physical Volumes Information
-$ lvs		# Logical Volumes Information
-$ vgs		# Volume Groups 
-$ df -h		# Disk Free, human-readble format
+pvs  # Physical Volumes Information
+lvs  # Logical Volumes Information
+vgs  # Volume Groups 
+df -h  # Disk Free, human-readble format
 ```
 
 ## Reserved Blocks in Linux
@@ -184,7 +205,7 @@ The default percentage of reserved block is `5%` of the total size of file syste
 
 **VHD** is the native format of _Microsoft Virtual PC_. _Windows Server 2012_ introduced _VHDX_ as the successor to _VHD_, but _VirtualBox_ does not support _VHDX_.
 
-## Most Used Commands:
+## Most Used Commands
 
 ```bash
 apt
@@ -224,4 +245,4 @@ service
 
 ## What is UFW
 
-It actually stands for **Uncomplicated Fire-Wall**, 
+It actually stands for **Uncomplicated Fire-Wall**,
